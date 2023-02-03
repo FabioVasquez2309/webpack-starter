@@ -2,11 +2,14 @@ const HtmlWebPackPlugin       = require('html-webpack-plugin');
 const MiniCssExtractPlugin    = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
     mode: 'production',
     optimization: {
-        minimizer: [ new OptimizeCssAssetsPlugin() ]
+        minimizer: [ new OptimizeCssAssetsPlugin() ],
+        minimize: true,
+        minimizer: [new TerserPlugin()],
     },
     output: {
         filename: 'main.[contentHash].js',
