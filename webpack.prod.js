@@ -7,9 +7,7 @@ const TerserPlugin = require("terser-webpack-plugin");
 module.exports = {
     mode: 'production',
     optimization: {
-        minimizer: [ new OptimizeCssAssetsPlugin() ],
-        minimize: true,
-        minimizer: [new TerserPlugin()],
+        minimizer: [ new OptimizeCssAssetsPlugin(), new TerserPlugin() ],    
     },
     output: {
         filename: 'main.[contentHash].js',
